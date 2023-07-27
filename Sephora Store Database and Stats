@@ -1,0 +1,31 @@
+--create Sephora store database
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, section TEXT, price INTEGER, rating INTEGER);
+
+INSERT INTO store VALUES (1, "merit bronzer", "makeup", 30.00, 4);
+INSERT INTO store VALUES (2, "sf eye cream", "skincare", 44.00, 4);
+INSERT INTO store VALUES (3, "pc bha", "skincare", 13.00, 4);
+INSERT INTO store VALUES (4, "o/s eyeliner", "makeup", 19.00, 4);
+INSERT INTO store VALUES (5, "dae shampoo", "haircare", 12.00, 3);
+INSERT INTO store VALUES (6, "sf skin tint", "makeup", 42.00, 4);
+INSERT INTO store VALUES (7, "skinfix mouisturizer", "skincare", 54.00, 4);
+INSERT INTO store VALUES (8, "tb mascara", "makeup", 20.00, 4);
+INSERT INTO store VALUES (9, "moonjuice", "supplements", 42.00, 4.5);
+INSERT INTO store VALUES (10, "jvn cream", "haircare", 12.00, 3);
+INSERT INTO store VALUES (11, "dr jart mask", "skincare", 7.00, 4.5);
+INSERT INTO store VALUES (12, "milk blush", "makeup", 24.00, 4);
+INSERT INTO store VALUES (13, "abh brow pen", "makeup", 22.00, 3);
+INSERT INTO store VALUES (14, "nutrafol", "supplements", 88.00, 5);
+INSERT INTO store VALUES (15, "goop", "supplements", 12.00, 2);
+
+--display the database ordered by price.
+SELECT * FROM store
+ORDER BY price desc;
+
+--what is the average price of items in the makeup section?
+SELECT AVG(price) "avg makeup item price" FROM store where section='makeup';
+
+--what are the 5 most popular items?
+SELECT item, price, rating FROM store
+ORDER BY rating desc
+limit 5;
